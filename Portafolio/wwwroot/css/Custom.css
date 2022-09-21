@@ -9,7 +9,7 @@
     width: 200px;
 }
 .seccion-bienvenida {
-    margin: 5rem 0 5rem 0;
+    margin: 10rem 0 10rem 0;
 }
 
 .seccion-bienvenida h1
@@ -22,4 +22,20 @@
     font-family:sans-serif;
     line-height:1.5;
     font-size:1.25rem;
+}
+
+.cabecera
+{
+    font-weight:bold;
+
+}
+
+.habilidades ul
+{
+    list-style:none;
+   padding-left:0;
+}
+
+.habilidades i {
+    font-size: 30px;
 }
