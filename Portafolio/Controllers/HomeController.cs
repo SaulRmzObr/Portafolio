@@ -1,56 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Portafolio.Models;
+using Portafolio.Servicios;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace Portafolio.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IRepositorioProyectos _repositorioProyectos;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(
+            IRepositorioProyectos repositorioProyectos
+            )
         {
-            _logger = logger;
+            _repositorioProyectos = repositorioProyectos;
         }
 
         public IActionResult Index()
         {
-            var proyectos = ObtenerProyectos();
-            var modelo = new HomeIndexViewModel { Proyectos = proyectos };
+            var proyectos = _repositorioProyectos.ObtenerProyectos();
+            var modelo = new HomeIndexViewModel 
+            {
+                Proyectos = proyectos
+            };
             return View(modelo);
         }
-
-        private List<Proyecto> ObtenerProyectos()
-        {
-            return new List<Proyecto>()
-            {
-                new Proyecto
-                {
-                    Titulo = "Api Gmm",
-                    Descripcion = "Api Rest para cotizar seguros de Gmm",
-                    Link = "https://api.aarco.com.mx/cotizarpaquetesgmm",
-                    ImagenURL ="/img/restapigmm.png"
-
-                },
-                new Proyecto
-                {
-                    Titulo = "Landing Gmm",
-                    Descripcion = "Sitio web personalizado para agentes donde puedan cotizar seguros de gmm",
-                    Link = "https://cotizamaticos.com/lan.gmm/cotizamatico.prueba",
-                    ImagenURL ="/img/landinggmm.png"
-
-                },
-                new Proyecto
-                {
-                    Titulo = "Emision Mapfre Gmm",
-                    Descripcion = "Modulo del cotizador de gmm donde pueden emitir cotizaciones del producto Pmm de Gmm",
-                    Link = "https://uat.cotizamatico.com.mx/login",
-                    ImagenURL ="/img/emisiongmm.png"
-
-                }
-            };
-        }
-
         public IActionResult Privacy()
         {
             return View();
