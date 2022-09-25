@@ -31,7 +31,15 @@ namespace Portafolio.Servicios
                     Link = "https://uat.cotizamatico.com.mx/login",
                     ImagenURL ="/img/emisiongmm.png"
 
-                }
+                },
+                new Proyecto
+                {
+                    Titulo = "Modulo para simular ahorro de retiro",
+                    Descripcion = "Sitio web para asociados que les permite calcular el ahorro de retiro de sus clientes, de acuerdo a sus datos personales y de su empleo",
+                    Link = "https://cotizamaticos.com",
+                    ImagenURL ="/img/afore-logo.png"
+
+                },
             };
         }
     }
